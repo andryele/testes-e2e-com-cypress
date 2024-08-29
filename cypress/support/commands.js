@@ -64,7 +64,7 @@ Cypress.Commands.add('createNote', (note, attachFile = false) => {
 
   cy.contains('.list-group-item', note).should('be.visible')
 })
-
+//teste
 Cypress.Commands.add('editNote', (note, newNoteValue, attachFile = false) => {
   cy.intercept('GET', '**/notes/**').as('getNote')
 
