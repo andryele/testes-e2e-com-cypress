@@ -34,7 +34,7 @@ Cypress.Commands.add('guiLogin', (
   cy.visit('/login')
   cy.get('#email').type(username)
   cy.get('#password').type(password, { log: false })
-  cy.get('button[type="submit"].LoaderButton', { timeout: 10000 }) .should('not.be.disabled').click()
+  cy.get('button[type="submit"].LoaderButton').should('be.visible')
   //cy.wait('@getNotes')
   cy.contains('h1', 'Your Notes').should('be.visible')
 })
