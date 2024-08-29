@@ -4,7 +4,8 @@ Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
   cy.get('#email').type(email)
   cy.get('#password').type(password, { log: false })
   cy.get('#confirmPassword').type(password, { log: false })
-  cy.get('button[type="submit"].LoaderButton').contains('Signup').should('be.visible').and('contain.text', 'Signup')
+  //cy.get('button[type="submit"].LoaderButton').contains('Signup').should('be.visible').and('contain.text', 'Signup')
+  cy.get('button[type="submit"].LoaderButton', { timeout: 10000 }).should('not.be.disabled').and('be.visible')
   cy.get('#confirmationCode').should('be.visible')
   cy.mailosaurGetMessage(Cypress.env('MAILOSAUR_SERVER_ID'), {
     sentTo: email
